@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --ruby-red:     #C1121F;
+  --ruby-dark:    #780000;
+  --ruby-crimson: #E63946;
+  --gold:         #FFD700;
+  --gold-dark:    #B8860B;
+  --text-light:   #F1FAEE;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.theme-dark {
+  background-color: #1A1A2E;
+  color: #F1FAEE;
+  --bg-card:  #16213E;
+  --bg-panel: #0F3460;
+  --border-color: var(--gold);
+}
+
+body.theme-light {
+  background-color: #f0f0f0;
+  color: #1A1A2E;
+  --bg-card:  #ffffff;
+  --bg-panel: #dde3f0;
+  --border-color: var(--ruby-red);
+}
+
+h1 {
+  color: var(--gold);
+  text-shadow: 3px 3px 0px var(--ruby-dark);
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+}
+
+body.theme-light h1 {
+  color: var(--ruby-red);
+  text-shadow: 2px 2px 0px var(--ruby-dark);
+}
+
+#stats {
+  background-color: var(--bg-panel);
+  border: 3px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px 24px;
+  font-size: 0.55rem;
+  line-height: 2.2;
+}
+
+#stats span span {
+  color: var(--gold);
+}
+
+body.theme-light #stats span span {
+  color: var(--ruby-red);
+}
+
+.game-message {
+  background-color: var(--bg-panel);
+  border: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 0.6rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+body.theme-light .game-message {
+  border-color: var(--ruby-red);
+  color: var(--ruby-red);
+}
+
+#game_grid {
+  border: 3px solid var(--ruby-red);
+  box-shadow: 0 0 20px var(--ruby-crimson);
+  width: 600px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.memory-card {
+  width: var(--card-width, 33.3%);
+  position: relative;
+  transition: transform 1s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  border: 1px solid var(--bg-panel);
+}
+
+.memory-card:hover {
+  border-color: var(--gold);
+}
+
+img {
+  width: 100%;
+}
+
+.front_face,
+.back_face {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.front_face {
+  transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+  border-color: var(--gold);
+  box-shadow: inset 0 0 10px var(--gold-dark);
+}
+
+.btn-ruby {
+  background-color: var(--ruby-red);
+  border: 2px solid var(--ruby-dark);
+  color: var(--text-light);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-ruby:hover, .btn-ruby.active {
+  background-color: var(--ruby-crimson);
+  color: var(--text-light);
+}
+
+.btn-gold {
+  background-color: var(--gold-dark);
+  border: 2px solid var(--gold);
+  color: #1A1A2E;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-gold:hover {
+  background-color: var(--gold);
+  color: #1A1A2E;
+}
+
+.btn-reset {
+  background-color: #3a3a5c;
+  border: 2px solid #7a7aaa;
+  color: var(--text-light);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.btn-reset:hover {
+  background-color: #5a5a8c;
+  color: var(--text-light);
+}
+
+.btn-powerup {
+  background-color: #7b2d8b;
+  border: 2px solid #c84ddb;
+  color: var(--text-light);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.btn-powerup:hover {
+  background-color: #a03db5;
+  color: var(--text-light);
+}
+
+.btn-powerup:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-theme {
+  background-color: #2a5298;
+  border: 2px solid #5b8cde;
+  color: var(--text-light);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+  padding: 10px 16px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.btn-theme:hover {
+  background-color: #3a6bc8;
+  color: var(--text-light);
+}
